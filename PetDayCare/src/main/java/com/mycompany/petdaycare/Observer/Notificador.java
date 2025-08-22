@@ -4,6 +4,7 @@
  */
 package com.mycompany.petdaycare.Observer;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,19 +13,20 @@ import java.util.List;
  * @author Lenovo
  */
 public class Notificador {
-    private List<Usuario> usuarios = new ArrayList<>();
+    private List<UsuarioCliente> usuarios = new ArrayList<>();
     private String estado;
+   
 
-    public void agregar(Usuario u) {
+    public void agregarUsuario(UsuarioCliente u) {
         usuarios.add(u);
     }
 
-    public void eliminarUsuario(Usuario u) {
+    public void eliminarUsuario(UsuarioCliente u) {
         usuarios.remove(u);
     }
 
     public void notificarUsuario() {
-        for (Usuario usuario : usuarios) {
+        for (UsuarioCliente usuario : usuarios) {
             usuario.update(estado);
         }
     }
