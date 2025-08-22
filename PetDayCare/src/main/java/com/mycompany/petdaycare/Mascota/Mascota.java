@@ -5,8 +5,8 @@ import com.mycompany.petdaycare.Mascota.DatosMascota.Raza;
 
 public class Mascota {
     
-    private Especie especie;// Code Smell
-    private Raza raza;// Code Smell
+    private final Especie especie;// Code Smell
+    private final Raza raza;// Code Smell
     private int edad;
     private double tamano;
     private String necesidades;
@@ -53,18 +53,9 @@ public class Mascota {
     }
 
 
-    public void setEspecie(Especie especie) {
-        this.especie = especie;
-    }
 
-
-    public void setRaza(Raza raza) {
-        this.raza = raza;
-    }
-
-
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void cumplirAnios() {
+        this.edad++;
     }
 
 
@@ -82,5 +73,12 @@ public class Mascota {
         this.preferenciasTrato = preferenciasTrato;
     }
 
+    public boolean esCachorro() {
+        return edad < 2;
+    }
+
+    public boolean esDeRazaGrande() {
+        return tamano > 25.0;
+    }
 
 }
