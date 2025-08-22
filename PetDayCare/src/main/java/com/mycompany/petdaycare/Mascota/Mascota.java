@@ -1,16 +1,19 @@
 package com.mycompany.petdaycare.Mascota;
 
+import com.mycompany.petdaycare.Mascota.DatosMascota.Especie;
+import com.mycompany.petdaycare.Mascota.DatosMascota.Raza;
+
 public class Mascota {
     
-    private String especie;
-    private String raza;
+    private final Especie especie;// Code Smell
+    private final Raza raza;// Code Smell
     private int edad;
     private double tamano;
     private String necesidades;
     private String preferenciasTrato;
 
 
-    public Mascota(String especie, String raza, int edad, double tamano, String necesidades, String preferenciasTrato) {
+    public Mascota(Especie especie, Raza raza, int edad, double tamano, String necesidades, String preferenciasTrato) {
         this.especie = especie;
         this.raza = raza;
         this.edad = edad;
@@ -20,12 +23,12 @@ public class Mascota {
     }
 
 
-    public String getEspecie() {
+    public Especie getEspecie() {
         return especie;
     }
 
 
-    public String getRaza() {
+    public Raza getRaza() {
         return raza;
     }
 
@@ -50,18 +53,9 @@ public class Mascota {
     }
 
 
-    public void setEspecie(String especie) {
-        this.especie = especie;
-    }
 
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
-
-
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void cumplirAnios() {
+        this.edad++;
     }
 
 
@@ -77,6 +71,14 @@ public class Mascota {
 
     public void setPreferenciasTrato(String preferenciasTrato) {
         this.preferenciasTrato = preferenciasTrato;
+    }
+
+    public boolean esCachorro() {
+        return edad < 2;
+    }
+
+    public boolean esDeRazaGrande() {
+        return tamano > 25.0;
     }
 
 }

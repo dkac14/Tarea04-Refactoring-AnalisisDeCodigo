@@ -10,11 +10,14 @@ public class ServicioConReporteDecorator extends ServicioDecorator {
     @Override
     public void ejecutar() {
         super.ejecutar();
-        System.out.println("+ Reporte generado");
     }
 
     @Override
     public double getPrecio() {
         return super.getPrecio() + 20.0;
+    }
+    @Override
+    protected void aplicarDecoracion() {
+        System.out.println("+ Reporte generado");
     }
 }

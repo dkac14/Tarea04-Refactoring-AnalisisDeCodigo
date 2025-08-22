@@ -12,10 +12,12 @@ public abstract class ServicioDecorator extends Servicio {
     @Override
     public void ejecutar() {
         wrappee.ejecutar();
+        this.aplicarDecoracion();
     }
 
     @Override
     public double getPrecio() {
         return wrappee.getPrecio();
     }
+    protected abstract void aplicarDecoracion();
 }
