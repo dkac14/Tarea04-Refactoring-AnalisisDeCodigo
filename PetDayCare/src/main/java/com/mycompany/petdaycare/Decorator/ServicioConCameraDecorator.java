@@ -10,11 +10,15 @@ public class ServicioConCameraDecorator extends ServicioDecorator {
     @Override
     public void ejecutar() {
         super.ejecutar();
-        System.out.println("+ Configuración de cámara añadida");
     }
 
     @Override
     public double getPrecio() {
         return super.getPrecio() + 30.0;
+    }
+
+    @Override
+    protected void aplicarDecoracion() {
+        System.out.println("+ Configuración de cámara añadida");
     }
 }
