@@ -1,4 +1,5 @@
 package com.mycompany.petdaycare.Servicio;
+
 import com.mycompany.petdaycare.CategoriaCuidado.CategoriaCuidado;
 import com.mycompany.petdaycare.Composite.Servicio;
 import com.mycompany.petdaycare.Composite.ServicioBase;
@@ -11,7 +12,8 @@ public class FabricaServicioGuarderiaDiurna extends FabricaServicio {
             TipoServicio.GUARDERIA_DIURNA.getNombre(),
             TipoServicio.GUARDERIA_DIURNA.getDescripcion(),
             CategoriaCuidado.BASICA,
-            TipoServicio.GUARDERIA_DIURNA.getPrecio()
+            TipoServicio.GUARDERIA_DIURNA.getPrecio(),
+            TipoServicio.GUARDERIA_DIURNA.getMoneda()
         );
     }
 }

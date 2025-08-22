@@ -12,8 +12,8 @@ public class FabricaServicioHospedajeNoche extends FabricaServicio {
             TipoServicio.HOSPEDAJE_NOCTURNO.getNombre(),
             TipoServicio.HOSPEDAJE_NOCTURNO.getDescripcion(),
             CategoriaCuidado.BASICA,
-            TipoServicio.HOSPEDAJE_NOCTURNO.getPrecio()
+            TipoServicio.HOSPEDAJE_NOCTURNO.getPrecio(),
+            TipoServicio.HOSPEDAJE_NOCTURNO.getMoneda()
         );
     }
 }
-

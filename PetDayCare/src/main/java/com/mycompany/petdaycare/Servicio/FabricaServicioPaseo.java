@@ -11,8 +11,9 @@ public class FabricaServicioPaseo extends FabricaServicio {
         return new ServicioBase(
             TipoServicio.PASEO.getNombre(),
             TipoServicio.PASEO.getDescripcion(),
-            CategoriaCuidado.BASICA, 
-            TipoServicio.PASEO.getPrecio()
+            CategoriaCuidado.BASICA,
+            TipoServicio.PASEO.getPrecio(),
+            TipoServicio.PASEO.getMoneda()
         );
     }
 }
