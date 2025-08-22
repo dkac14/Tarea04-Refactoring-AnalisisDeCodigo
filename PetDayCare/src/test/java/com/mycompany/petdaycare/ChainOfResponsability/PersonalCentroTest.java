@@ -41,7 +41,7 @@ public class PersonalCentroTest {
         assertTrue(output.contains("Personal del centro resolvió el incidente"), "Debe resolverse por el PersonalCentro");
         assertTrue(output.contains(incidente), "Debe incluir el incidente en el mensaje");
     }
-    //FALLOOOOOOOOOOOOOO WAAAAAAAAAA
+    
     @Test
     void testHandleIncidenteEscaladoAOtroManejador() {
         // Arrange
@@ -50,7 +50,7 @@ public class PersonalCentroTest {
 
         personalCentro.setNext(equipoGeneral);
 
-        String incidente = "El perro escapó de la zona segura";
+        String incidente = "El perro escapó de la zona segura. tipo: medio";
 
         // Act
         personalCentro.handle(incidente);
