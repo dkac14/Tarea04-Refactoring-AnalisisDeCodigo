@@ -55,7 +55,7 @@ public class UsuarioClienteTest {
         usuario.update(mensaje);
 
         String salida = salidaConsola.toString().trim();
-        String esperado = nombre + " ha recibido una actualización: " + mensaje;
+        String esperado = nombre + " ha recibido una actualización:" + mensaje;
 
         assertEquals(esperado, salida);
     }
