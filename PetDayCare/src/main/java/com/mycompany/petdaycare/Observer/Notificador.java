@@ -4,6 +4,7 @@
  */
 package com.mycompany.petdaycare.Observer;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class Notificador {
     private List<UsuarioCliente> usuarios = new ArrayList<>();
     private String estado;
+   
 
     public void agregarUsuario(UsuarioCliente u) {
         usuarios.add(u);
