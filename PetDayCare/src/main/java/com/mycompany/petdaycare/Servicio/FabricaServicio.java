@@ -1,5 +1,5 @@
 package com.mycompany.petdaycare.Servicio;
-import com.mycompany.petdaycare.Composite.*;
+import com.mycompany.petdaycare.Composite.Servicio;
 
 public abstract class FabricaServicio {
     
