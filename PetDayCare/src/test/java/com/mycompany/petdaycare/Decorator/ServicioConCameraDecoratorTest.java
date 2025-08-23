@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package com.mycompany.petdaycare.Decorator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.math.BigDecimal;
 
 import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.mycompany.petdaycare.Composite.Servicio;
-import com.mycompany.petdaycare.Decorator.ServicioConCameraDecorator;
 
 public class ServicioConCameraDecoratorTest {
 
@@ -38,8 +35,10 @@ public class ServicioConCameraDecoratorTest {
     @Test
     void SCC_01_ejecutar_conMensajeBase() {
         Servicio servicioBase = new Servicio() {
-            @Override public void ejecutar() { System.out.println("Base ejecutado"); }
-            @Override public double getPrecio() { return 50; }
+            @Override
+            public void ejecutar() { System.out.println("Base ejecutado"); }
+            @Override
+            public BigDecimal getPrecio() { return BigDecimal.valueOf(50); }
         };
 
         ServicioConCameraDecorator decorador = new ServicioConCameraDecorator(servicioBase);
@@ -53,8 +52,10 @@ public class ServicioConCameraDecoratorTest {
     @Test
     void SCC_02_ejecutar_sinMensajeBase() {
         Servicio servicioBase = new Servicio() {
-            @Override public void ejecutar() { }
-            @Override public double getPrecio() { return 0; }
+            @Override
+            public void ejecutar() { }
+            @Override
+            public BigDecimal getPrecio() { return BigDecimal.ZERO; }
         };
 
         ServicioConCameraDecorator decorador = new ServicioConCameraDecorator(servicioBase);
@@ -67,7 +68,20 @@ public class ServicioConCameraDecoratorTest {
 
     @Test
     void SCC_03_ejecutar_servicioNull_lanzaNPE() {
-        ServicioConCameraDecorator decorador = new ServicioConCameraDecorator(null);
-        assertThrows(NullPointerException.class, decorador::ejecutar);
+        assertThrows(NullPointerException.class, () -> new ServicioConCameraDecorator(null));
+    }
+
+    @Test
+    void SCC_04_precio_correcto_conDecorador() {
+        Servicio servicioBase = new Servicio() {
+            @Override
+            public void ejecutar() { }
+            @Override
+            public BigDecimal getPrecio() { return BigDecimal.valueOf(100); }
+        };
+
+        ServicioConCameraDecorator decorador = new ServicioConCameraDecorator(servicioBase);
+        BigDecimal esperado = BigDecimal.valueOf(130); // 100 + 30
+        assertEquals(0, esperado.compareTo(decorador.getPrecio()));
     }
 }
