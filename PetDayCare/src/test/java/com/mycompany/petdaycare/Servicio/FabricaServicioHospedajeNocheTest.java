@@ -55,7 +55,6 @@ class FabricaServicioHospedajeNocheTest {
         FabricaServicioHospedajeNoche fabrica = new FabricaServicioHospedajeNoche();
         Servicio servicio = fabrica.createServicio();
 
-        // Capturar salida de ejecutar()
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream original = System.out;
         System.setOut(new PrintStream(baos));
@@ -71,7 +70,6 @@ class FabricaServicioHospedajeNocheTest {
             "Salida esperada que contenga: 'Ejecutando el servicio: Hospedaje Nocturno'. Fue: " + salida
         );
 
-        // Verificar precio y moneda definidos en TipoServicio
         assertEquals(TipoServicio.HOSPEDAJE_NOCTURNO.getPrecio(), servicio.getPrecio());
         assertEquals(TipoServicio.HOSPEDAJE_NOCTURNO.getMoneda(), servicio.getCurrency());
     }
