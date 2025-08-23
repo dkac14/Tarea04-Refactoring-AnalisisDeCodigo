@@ -33,6 +33,7 @@ public class ServicioConReporteDecoratorTest {
 
     @Test
     void SRD_01_ejecutar_conMensajeBase() {
+    void SRD01_ejecutar_conMensajeBase() {
         Servicio servicioBase = new Servicio() {
             @Override public void ejecutar() { System.out.println("Base ejecutado"); }
             @Override public BigDecimal getPrecio() { return BigDecimal.valueOf(50); }
@@ -48,6 +49,7 @@ public class ServicioConReporteDecoratorTest {
 
     @Test
     void SRD_02_ejecutar_sinMensajeBase() {
+    void SRD02_ejecutar_sinMensajeBase() {
         Servicio servicioBase = new Servicio() {
             @Override public void ejecutar() { }
             @Override public BigDecimal getPrecio() { return BigDecimal.ZERO; }
@@ -63,6 +65,7 @@ public class ServicioConReporteDecoratorTest {
 
     @Test
     void SRD_03_servicioNull_lanzaNPE() {
+    void SRD03_servicioNull_lanzaNPE() {
         // Ahora la clase lanza NullPointerException al pasar null
         assertThrows(NullPointerException.class, () -> new ServicioConReporteDecorator(null));
     }
