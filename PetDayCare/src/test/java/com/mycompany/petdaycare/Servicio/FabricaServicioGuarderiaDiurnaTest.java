@@ -3,7 +3,6 @@ package com.mycompany.petdaycare.Servicio;
 import com.mycompany.petdaycare.CategoriaCuidado.CategoriaCuidado;
 import com.mycompany.petdaycare.Composite.Servicio;
 import com.mycompany.petdaycare.Composite.ServicioBase;
-import com.mycompany.petdaycare.Composite.ServicioGuarderiaDiurna;
 import com.mycompany.petdaycare.Composite.TipoServicio;
 
 import org.junit.jupiter.api.Test;
@@ -43,7 +42,6 @@ class FabricaServicioGuarderiaDiurnaTest {
         assertNotNull(s2);
         assertNotSame(s1, s2, "Cada invocación debe devolver instancias diferentes");
 
-        // Deben tener los mismos valores, aunque sean objetos distintos
         assertEquals(s1.getNombre(), s2.getNombre());
         assertEquals(s1.getDescripcion(), s2.getDescripcion());
         assertEquals(s1.getPrecio(), s2.getPrecio());
@@ -56,7 +54,6 @@ class FabricaServicioGuarderiaDiurnaTest {
         FabricaServicioGuarderiaDiurna fabrica = new FabricaServicioGuarderiaDiurna();
         Servicio servicio = fabrica.createServicio();
 
-        // Captura la salida de ejecutar()
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream original = System.out;
         System.setOut(new PrintStream(baos));
@@ -72,7 +69,6 @@ class FabricaServicioGuarderiaDiurnaTest {
             "Salida esperada que contenga: 'Ejecutando el servicio: Guardería Diurna'. Fue: " + salida
         );
 
-        // Verifica precio y moneda definidos en TipoServicio
         assertEquals(TipoServicio.GUARDERIA_DIURNA.getPrecio(), servicio.getPrecio());
         assertEquals(TipoServicio.GUARDERIA_DIURNA.getMoneda(), servicio.getCurrency());
     }

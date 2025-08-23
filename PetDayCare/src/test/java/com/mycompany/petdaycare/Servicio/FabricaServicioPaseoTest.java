@@ -3,7 +3,6 @@ package com.mycompany.petdaycare.Servicio;
 import com.mycompany.petdaycare.CategoriaCuidado.CategoriaCuidado;
 import com.mycompany.petdaycare.Composite.Servicio;
 import com.mycompany.petdaycare.Composite.ServicioBase;
-import com.mycompany.petdaycare.Composite.ServicioPaseo;
 import com.mycompany.petdaycare.Composite.TipoServicio;
 
 import org.junit.jupiter.api.Test;
@@ -42,7 +41,6 @@ class FabricaServicioPaseoTest {
         assertNotNull(s2);
         assertNotSame(s1, s2, "Cada invocación debe devolver instancias distintas");
 
-        // Verificar que ambos objetos tengan los mismos valores
         assertEquals(s1.getNombre(), s2.getNombre());
         assertEquals(s1.getDescripcion(), s2.getDescripcion());
         assertEquals(s1.getPrecio(), s2.getPrecio());
@@ -51,11 +49,10 @@ class FabricaServicioPaseoTest {
     }
 
     @Test
-    void FP003_createServicio_valoresPorDefecto() {
+    void FP003_createServicio_valoresPorDefectoYEjecucion() {
         FabricaServicioPaseo fabrica = new FabricaServicioPaseo();
         Servicio servicio = fabrica.createServicio();
 
-        
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream original = System.out;
         System.setOut(new PrintStream(baos));
@@ -66,12 +63,13 @@ class FabricaServicioPaseoTest {
         }
 
         String salida = baos.toString().trim();
+
         assertTrue(
-            salida.contains("Ejecutando servicio de Paseo"),
-            "Salida esperada: 'Ejecutando servicio de Paseo'. Fue: " + salida
+            salida.contains("Ejecutando el servicio: " + TipoServicio.PASEO.getNombre()),
+            "Salida esperada que contenga: 'Ejecutando el servicio: Paseo'. Fue: " + salida
         );
 
-        
-        assertEquals(1.0, servicio.getPrecio(), 1e-9);
+        assertEquals(TipoServicio.PASEO.getPrecio(), servicio.getPrecio());
+        assertEquals(TipoServicio.PASEO.getMoneda(), servicio.getCurrency());
     }
 }
