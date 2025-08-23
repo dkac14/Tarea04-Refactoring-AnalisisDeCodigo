@@ -3,7 +3,6 @@ package com.mycompany.petdaycare.Servicio;
 import com.mycompany.petdaycare.CategoriaCuidado.CategoriaCuidado;
 import com.mycompany.petdaycare.Composite.Servicio;
 import com.mycompany.petdaycare.Composite.ServicioBase;
-import com.mycompany.petdaycare.Composite.ServicioPaseo;
 import com.mycompany.petdaycare.Composite.TipoServicio;
 
 import org.junit.jupiter.api.Test;
@@ -72,6 +71,6 @@ class FabricaServicioPaseoTest {
         );
 
         
-        assertEquals(1.0, servicio.getPrecio(), 1e-9);
+        assertEquals(1.0, servicio.getPrecio());
     }
 }
