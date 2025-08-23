@@ -28,7 +28,7 @@ public class UsuarioClienteTest {
 
     @AfterEach
     void tearDown() {
-        System.setOut(salidaOriginal); // Restaurar salida estándar
+        System.setOut(salidaOriginal); 
     }
     
     @Test

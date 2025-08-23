@@ -11,12 +11,12 @@ public class PaqueteServicio extends Servicio {
 
     public void addServicio(Servicio s) {
         Objects.requireNonNull(s, "El servicio no puede ser null");
-        // Solo validar moneda si currency existe, para no romper tests
+        
         if (!servicios.isEmpty() && s.getCurrency() != null && !s.getCurrency().equals(this.currency)) {
             throw new IllegalArgumentException("Todos los servicios del paquete deben tener la misma moneda");
         }
         if (servicios.isEmpty()) {
-            this.currency = s.getCurrency(); // inicializamos la moneda con el primer servicio
+            this.currency = s.getCurrency(); 
         }
         servicios.add(s);
     }

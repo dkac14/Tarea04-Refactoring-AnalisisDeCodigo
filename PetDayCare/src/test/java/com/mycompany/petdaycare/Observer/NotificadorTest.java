@@ -112,7 +112,7 @@ public class NotificadorTest {
         Notificador n = new Notificador();
         UsuarioCliente ana = new UsuarioCliente("Ana");
         n.agregarUsuario(ana);
-        n.agregarUsuario(ana); // mismo objeto dos veces
+        n.agregarUsuario(ana); 
         n.setEstado("VACUNACIÓN_PROGRAMADA");
 
         n.notificarUsuario();
@@ -124,21 +124,19 @@ public class NotificadorTest {
     @Test
     void PC_NOT07_nullSuscriptor_documentaComportamiento() {
         Notificador n = new Notificador();
-        n.agregarUsuario(null);           // si tu código ahora valida null, cambia este test
+        n.agregarUsuario(null);          
         n.setEstado("RECORDATORIO_DESPARASITACIÓN");
 
-        // Opción A (implementación actual sin validar): lanza NPE al notificar
+        
         assertThrows(NullPointerException.class, n::notificarUsuario);
 
-        // Opción B (si agregaste validación en agregarUsuario):
-        // assertThrows(NullPointerException.class, () -> n.agregarUsuario(null));
     }
 
     @Test
     void PC_NOT08_eliminarNoSuscrito_noAfecta() {
         Notificador n = new Notificador();
         UsuarioCliente ana = new UsuarioCliente("Ana");
-        UsuarioCliente pedro = new UsuarioCliente("Pedro"); // no suscrito
+        UsuarioCliente pedro = new UsuarioCliente("Pedro"); 
         n.agregarUsuario(ana);
         n.eliminarUsuario(pedro);
         n.setEstado("RECORDATORIO_VACUNA_RABIA");

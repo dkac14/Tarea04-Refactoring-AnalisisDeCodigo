@@ -13,10 +13,10 @@ import org.junit.jupiter.api.Test;
 
 class PaqueteServicioTest {
 
-    // Implementación mínima para pruebas
+    
     static class ServicioDummy extends Servicio {
         private final String nombre;
-        private final BigDecimal precio; // ahora BigDecimal
+        private final BigDecimal precio; 
         private int ejecuciones = 0;
 
         ServicioDummy(String nombre, double precio) {
@@ -62,12 +62,12 @@ class PaqueteServicioTest {
         PaqueteServicio paquete = new PaqueteServicio();
         ServicioDummy servicioA = new ServicioDummy("A", 10.0);
         ServicioDummy servicioB = new ServicioDummy("B", 20.0);
-        ServicioDummy servicioC = new ServicioDummy("C", 30.0); // no se agrega
+        ServicioDummy servicioC = new ServicioDummy("C", 30.0); 
 
         paquete.addServicio(servicioA);
         paquete.addServicio(servicioB);
 
-        paquete.removeServicio(servicioC); // no hace nada
+        paquete.removeServicio(servicioC); 
 
         assertSame(servicioA, paquete.getServicio(0));
         assertSame(servicioB, paquete.getServicio(1));
@@ -137,7 +137,7 @@ class PaqueteServicioTest {
         paquete.addServicio(s2);
 
         BigDecimal precioEsperado = BigDecimal.valueOf(150.0)
-                .multiply(BigDecimal.valueOf(0.9)); // 10% descuento
+                .multiply(BigDecimal.valueOf(0.9));
 
         assertEquals(0, precioEsperado.compareTo(paquete.getPrecio()), "Precio con descuento debe ser correcto");
     }

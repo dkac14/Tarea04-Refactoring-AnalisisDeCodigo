@@ -5,8 +5,8 @@ import com.mycompany.petdaycare.Mascota.DatosMascota.Raza;
 
 public class Mascota {
     
-    private final Especie especie;// Code Smell
-    private final Raza raza;// Code Smell
+    private final Especie especie;
+    private final Raza raza;
     private int edad;
     private double tamano;
     private String necesidades;

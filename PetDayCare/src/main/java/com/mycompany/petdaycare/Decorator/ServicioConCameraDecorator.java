@@ -14,7 +14,7 @@ public class ServicioConCameraDecorator extends ServicioDecorator {
     @Override
     public void ejecutar() {
         super.ejecutar();
-        aplicarDecoracion(); // Asegura que siempre se imprima la decoración
+        aplicarDecoracion(); 
     }
 
     @Override

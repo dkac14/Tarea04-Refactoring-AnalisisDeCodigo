@@ -23,7 +23,7 @@ public class PersonalCentroTest {
     @Test
     void testHandleIncidenteResueltoPorPersonalCentro() {
         PersonalCentro personalCentro = new PersonalCentro();
-        String incidente = "El agua del bebedero está muy bajo"; // contiene "bajo"
+        String incidente = "El agua del bebedero está muy bajo"; 
 
         personalCentro.handle(incidente);
 
@@ -37,7 +37,7 @@ public class PersonalCentroTest {
     @Test
     void testHandleIncidenteEscaladoAOtroManejador() {
         PersonalCentro personalCentro = new PersonalCentro();
-        // Creamos un manejador siguiente simulado
+        
         ManejadorIncidenteBase siguiente = new ManejadorIncidenteBase() {
             @Override
             public void handle(String incidente) {
@@ -47,7 +47,7 @@ public class PersonalCentroTest {
 
         personalCentro.setNext(siguiente);
 
-        String incidente = "El perro escapó de la zona segura. tipo: medio"; // no contiene "bajo"
+        String incidente = "El perro escapó de la zona segura. tipo: medio"; 
 
         personalCentro.handle(incidente);
 
@@ -61,7 +61,7 @@ public class PersonalCentroTest {
     @Test
     void testHandleSinSiguienteEnCadenaNoLanzaExcepcion() {
         PersonalCentro personalCentro = new PersonalCentro();
-        String incidente = "Algo grave ocurrió"; // no contiene "bajo"
+        String incidente = "Algo grave ocurrió"; 
 
         assertDoesNotThrow(() -> personalCentro.handle(incidente),
                 "No debe lanzar excepción si no hay siguiente manejador");

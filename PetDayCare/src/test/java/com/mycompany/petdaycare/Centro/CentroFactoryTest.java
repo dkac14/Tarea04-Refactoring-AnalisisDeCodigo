@@ -33,8 +33,6 @@ public class CentroFactoryTest {
     @Test
     void CF03_create_conTipoNull_lanzaNPE() {
         CentroFactory factory = new CentroFactory();
-
-        // CentroSimple.of(null) terminará lanzando NPE (se evalúa tipo.descripcionPorDefecto())
         assertThrows(NullPointerException.class, () -> factory.create(null));
     }
 }

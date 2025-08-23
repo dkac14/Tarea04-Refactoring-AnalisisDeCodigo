@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CentroSimpleTest {
     @Test
     void CS01_of_conTipo_usaDescripcionPorDefecto() {
-        // Tomamos cualquier valor del enum para no acoplar a un nombre concreto
         TipoCentro tipo = TipoCentro.values()[0];
         CentroSimple centro = CentroSimple.of(tipo);
 
@@ -44,7 +43,6 @@ public class CentroSimpleTest {
         NullPointerException ex =
             assertThrows(NullPointerException.class, () -> CentroSimple.of(tipo, null));
 
-        // Por Objects.requireNonNull(descripcion, "descripcion")
         assertEquals("descripcion", ex.getMessage());
     }
 

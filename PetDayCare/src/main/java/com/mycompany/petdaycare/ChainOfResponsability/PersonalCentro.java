@@ -6,8 +6,8 @@ public class PersonalCentro extends ManejadorIncidenteBase {
         if (incidente != null && incidente.contains("bajo")) {
             System.out.println("Personal del centro resolvió el incidente: " + incidente);
         } else if (next != null) {
-            next.handle(incidente); // delega solo si hay siguiente
+            next.handle(incidente); 
         }
-        // Si no hay siguiente, no hace nada (no lanza excepción)
+        
     }
 }

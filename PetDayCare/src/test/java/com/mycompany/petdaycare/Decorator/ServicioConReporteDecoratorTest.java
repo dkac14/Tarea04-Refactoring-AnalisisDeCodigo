@@ -39,7 +39,7 @@ public class ServicioConReporteDecoratorTest {
         };
 
         ServicioConReporteDecorator decorador = new ServicioConReporteDecorator(servicioBase);
-        decorador.ejecutar(); // ya aplica decoración automáticamente
+        decorador.ejecutar(); 
 
         String salida = outputStream.toString();
         assertTrue(salida.contains("Base ejecutado"));
@@ -54,7 +54,7 @@ public class ServicioConReporteDecoratorTest {
         };
 
         ServicioConReporteDecorator decorador = new ServicioConReporteDecorator(servicioBase);
-        decorador.ejecutar(); // ya aplica decoración automáticamente
+        decorador.ejecutar(); 
 
         String salida = outputStream.toString();
         assertFalse(salida.contains("Base ejecutado"));
@@ -63,7 +63,6 @@ public class ServicioConReporteDecoratorTest {
 
     @Test
     void SRD03_servicioNull_lanzaNPE() {
-        // Ahora la clase lanza NullPointerException al pasar null
         assertThrows(NullPointerException.class, () -> new ServicioConReporteDecorator(null));
     }
 }

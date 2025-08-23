@@ -1,7 +1,7 @@
 package com.mycompany.petdaycare.ChainOfResponsability;
 
 public abstract class ManejadorIncidenteBase implements ManejadorIncidente {
-    protected ManejadorIncidente next; // puede ser null
+    protected ManejadorIncidente next; 
 
     @Override
     public void setNext(ManejadorIncidente m) {
@@ -13,7 +13,7 @@ public abstract class ManejadorIncidenteBase implements ManejadorIncidente {
         if (next != null) {
             next.handle(incidente);
         }
-        // si no hay next, simplemente no hace nada
+        
     }
 
     public boolean isNull() {

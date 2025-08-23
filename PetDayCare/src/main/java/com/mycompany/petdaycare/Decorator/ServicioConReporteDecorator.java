@@ -16,7 +16,7 @@ public class ServicioConReporteDecorator extends ServicioDecorator {
     @Override
     public void ejecutar() {
         super.ejecutar();
-        aplicarDecoracion(); // ahora la decoración se aplica automáticamente
+        aplicarDecoracion(); 
     }
 
     @Override
