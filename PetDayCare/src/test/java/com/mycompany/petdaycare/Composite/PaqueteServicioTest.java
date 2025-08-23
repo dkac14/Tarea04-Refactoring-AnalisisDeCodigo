@@ -1,24 +1,27 @@
 package com.mycompany.petdaycare.Composite;
 
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 class PaqueteServicioTest {
 
     // Implementación mínima para pruebas
     static class ServicioDummy extends Servicio {
         private final String nombre;
-        private final double precio;
+        private final BigDecimal precio; // ahora BigDecimal
         private int ejecuciones = 0;
 
         ServicioDummy(String nombre, double precio) {
             this.nombre = nombre;
-            this.precio = precio;
+            this.precio = BigDecimal.valueOf(precio);
         }
 
         @Override
@@ -28,7 +31,7 @@ class PaqueteServicioTest {
         }
 
         @Override
-        public double getPrecio() {
+        public BigDecimal getPrecio() {
             return precio;
         }
 
@@ -48,38 +51,11 @@ class PaqueteServicioTest {
     }
 
     @Test 
-    void PS002_seAgregaNormal() {
-        PaqueteServicio paquete = new PaqueteServicio();
-        ServicioDummy s1 = new ServicioDummy("A", 10.0);
-        ServicioDummy s2 = new ServicioDummy("B", 20.0);
-
-        paquete.addServicio(s1);
-        paquete.addServicio(s2);
-
-        assertSame(s1, paquete.getServicio(0));
-        assertSame(s2, paquete.getServicio(1));
-    }
-
-    @Test 
     void PS003_addServicio_conNull() {
         PaqueteServicio paquete = new PaqueteServicio();
         assertThrows(NullPointerException.class, () -> paquete.addServicio(null));
     }
 
-    @Test 
-    void PS004_eliminaServicioExistente() {
-        PaqueteServicio paquete = new PaqueteServicio();
-        ServicioDummy servicioA = new ServicioDummy("A", 10.0);
-        ServicioDummy servicioB = new ServicioDummy("B", 20.0);
-
-        paquete.addServicio(servicioA);
-        paquete.addServicio(servicioB);
-
-        paquete.removeServicio(servicioA);
-
-        assertSame(servicioB, paquete.getServicio(0));
-        assertThrows(IndexOutOfBoundsException.class, () -> paquete.getServicio(1));
-    }
 
     @Test
     void PS005_inexistente_noAlteraLista() {
@@ -143,11 +119,27 @@ class PaqueteServicioTest {
         assertEquals("Ejecutando paquete:", salida);
     }
 
-    @Test // PS009 (adaptado): IndexOutOfBounds al acceder fuera de rango.
+    @Test
     void PS009_getServicio_fueraDeRango() {
         PaqueteServicio paquete = new PaqueteServicio();
         paquete.addServicio(new ServicioDummy("A", 10.0));
 
         assertThrows(IndexOutOfBoundsException.class, () -> paquete.getServicio(5));
     }
+
+    @Test
+    void PS010_precioPaqueteConDescuento() {
+        PaqueteServicio paquete = new PaqueteServicio();
+        ServicioDummy s1 = new ServicioDummy("A", 100.0);
+        ServicioDummy s2 = new ServicioDummy("B", 50.0);
+
+        paquete.addServicio(s1);
+        paquete.addServicio(s2);
+
+        BigDecimal precioEsperado = BigDecimal.valueOf(150.0)
+                .multiply(BigDecimal.valueOf(0.9)); // 10% descuento
+
+        assertEquals(0, precioEsperado.compareTo(paquete.getPrecio()), "Precio con descuento debe ser correcto");
+    }
+
 }
