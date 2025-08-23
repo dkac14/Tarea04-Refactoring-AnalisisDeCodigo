@@ -3,7 +3,6 @@ package com.mycompany.petdaycare.Servicio;
 import com.mycompany.petdaycare.CategoriaCuidado.CategoriaCuidado;
 import com.mycompany.petdaycare.Composite.Servicio;
 import com.mycompany.petdaycare.Composite.ServicioBase;
-import com.mycompany.petdaycare.Composite.ServicioPaseo;
 import com.mycompany.petdaycare.Composite.TipoServicio;
 
 import org.junit.jupiter.api.Test;
@@ -51,11 +50,11 @@ class FabricaServicioPaseoTest {
     }
 
     @Test
-    void FP003_createServicio_valoresPorDefecto() {
+    void FP003_createServicio_valoresPorDefectoYEjecucion() {
         FabricaServicioPaseo fabrica = new FabricaServicioPaseo();
         Servicio servicio = fabrica.createServicio();
 
-        
+        // Capturar salida de ejecutar()
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream original = System.out;
         System.setOut(new PrintStream(baos));
@@ -66,12 +65,14 @@ class FabricaServicioPaseoTest {
         }
 
         String salida = baos.toString().trim();
+
         assertTrue(
-            salida.contains("Ejecutando servicio de Paseo"),
-            "Salida esperada: 'Ejecutando servicio de Paseo'. Fue: " + salida
+            salida.contains("Ejecutando el servicio: " + TipoServicio.PASEO.getNombre()),
+            "Salida esperada que contenga: 'Ejecutando el servicio: Paseo'. Fue: " + salida
         );
 
-        
-        assertEquals(1.0, servicio.getPrecio(), 1e-9);
+        // Validar precio y moneda desde TipoServicio
+        assertEquals(TipoServicio.PASEO.getPrecio(), servicio.getPrecio());
+        assertEquals(TipoServicio.PASEO.getMoneda(), servicio.getCurrency());
     }
 }
