@@ -1,18 +1,10 @@
 package com.mycompany.petdaycare.Composite;
 
-<<<<<<< Updated upstream
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigDecimal;
 import java.util.Currency;
 
-=======
-import java.math.BigDecimal;
-import java.util.Currency;
-
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
->>>>>>> Stashed changes
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
