@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package com.mycompany.petdaycare.Decorator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.math.BigDecimal;
 
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -15,7 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.mycompany.petdaycare.Composite.Servicio;
-import com.mycompany.petdaycare.Decorator.ServicioConReporteDecorator;
 
 public class ServicioConReporteDecoratorTest {
 
@@ -39,11 +35,11 @@ public class ServicioConReporteDecoratorTest {
     void SRD_01_ejecutar_conMensajeBase() {
         Servicio servicioBase = new Servicio() {
             @Override public void ejecutar() { System.out.println("Base ejecutado"); }
-            @Override public double getPrecio() { return 50; }
+            @Override public BigDecimal getPrecio() { return BigDecimal.valueOf(50); }
         };
 
         ServicioConReporteDecorator decorador = new ServicioConReporteDecorator(servicioBase);
-        decorador.ejecutar();
+        decorador.ejecutar(); // ya aplica decoración automáticamente
 
         String salida = outputStream.toString();
         assertTrue(salida.contains("Base ejecutado"));
@@ -54,11 +50,11 @@ public class ServicioConReporteDecoratorTest {
     void SRD_02_ejecutar_sinMensajeBase() {
         Servicio servicioBase = new Servicio() {
             @Override public void ejecutar() { }
-            @Override public double getPrecio() { return 0; }
+            @Override public BigDecimal getPrecio() { return BigDecimal.ZERO; }
         };
 
         ServicioConReporteDecorator decorador = new ServicioConReporteDecorator(servicioBase);
-        decorador.ejecutar();
+        decorador.ejecutar(); // ya aplica decoración automáticamente
 
         String salida = outputStream.toString();
         assertFalse(salida.contains("Base ejecutado"));
@@ -66,9 +62,8 @@ public class ServicioConReporteDecoratorTest {
     }
 
     @Test
-    void SRD_03_ejecutar_servicioNull_lanzaNPE() {
-        ServicioConReporteDecorator decorador = new ServicioConReporteDecorator(null);
-        assertThrows(NullPointerException.class, decorador::ejecutar);
+    void SRD_03_servicioNull_lanzaNPE() {
+        // Ahora la clase lanza NullPointerException al pasar null
+        assertThrows(NullPointerException.class, () -> new ServicioConReporteDecorator(null));
     }
 }
-
