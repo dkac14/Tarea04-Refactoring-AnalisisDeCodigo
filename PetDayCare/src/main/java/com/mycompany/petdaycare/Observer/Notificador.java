@@ -30,4 +30,10 @@ public class Notificador {
             usuario.update(estado);
         }
     }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    
 }
