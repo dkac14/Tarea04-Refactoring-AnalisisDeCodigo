@@ -1,7 +1,11 @@
 package com.mycompany.petdaycare.Servicio;
 
+import com.mycompany.petdaycare.CategoriaCuidado.CategoriaCuidado;
 import com.mycompany.petdaycare.Composite.Servicio;
+import com.mycompany.petdaycare.Composite.ServicioBase;
 import com.mycompany.petdaycare.Composite.ServicioGuarderiaDiurna;
+import com.mycompany.petdaycare.Composite.TipoServicio;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -18,8 +22,14 @@ class FabricaServicioGuarderiaDiurnaTest {
 
         Servicio servicio = fabrica.createServicio();
 
-        assertNotNull(servicio);
-        assertTrue(servicio instanceof ServicioGuarderiaDiurna);
+        assertNotNull(servicio, "El servicio no debe ser null");
+        assertTrue(servicio instanceof ServicioBase, "Debe ser instancia de ServicioBase");
+
+        assertEquals(TipoServicio.GUARDERIA_DIURNA.getNombre(), servicio.getNombre());
+        assertEquals(TipoServicio.GUARDERIA_DIURNA.getDescripcion(), servicio.getDescripcion());
+        assertEquals(TipoServicio.GUARDERIA_DIURNA.getPrecio(), servicio.getPrecio());
+        assertEquals(TipoServicio.GUARDERIA_DIURNA.getMoneda(), servicio.getCurrency());
+        assertEquals(CategoriaCuidado.BASICA, servicio.getCategoria());
     }
 
     @Test
@@ -29,15 +39,24 @@ class FabricaServicioGuarderiaDiurnaTest {
         Servicio s1 = fabrica.createServicio();
         Servicio s2 = fabrica.createServicio();
 
-        assertNotSame(s1, s2);
+        assertNotNull(s1);
+        assertNotNull(s2);
+        assertNotSame(s1, s2, "Cada invocación debe devolver instancias diferentes");
+
+        // Deben tener los mismos valores, aunque sean objetos distintos
+        assertEquals(s1.getNombre(), s2.getNombre());
+        assertEquals(s1.getDescripcion(), s2.getDescripcion());
+        assertEquals(s1.getPrecio(), s2.getPrecio());
+        assertEquals(s1.getCurrency(), s2.getCurrency());
+        assertEquals(s1.getCategoria(), s2.getCategoria());
     }
 
     @Test
-    void FG003_createServicio_valoresPorDefecto() {
+    void FG003_createServicio_valoresPorDefectoYEjecucion() {
         FabricaServicioGuarderiaDiurna fabrica = new FabricaServicioGuarderiaDiurna();
         Servicio servicio = fabrica.createServicio();
 
-        // Verifica que ejecutar imprima el nombre esperado
+        // Captura la salida de ejecutar()
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream original = System.out;
         System.setOut(new PrintStream(baos));
@@ -47,12 +66,14 @@ class FabricaServicioGuarderiaDiurnaTest {
             System.setOut(original);
         }
         String salida = baos.toString().trim();
+
         assertTrue(
-            salida.contains("Ejecutando servicio de Guardería Diurna"),
-            "Salida esperada: 'Ejecutando servicio de Guardería Diurna'. Fue: " + salida
+            salida.contains("Ejecutando el servicio: " + TipoServicio.GUARDERIA_DIURNA.getNombre()),
+            "Salida esperada que contenga: 'Ejecutando el servicio: Guardería Diurna'. Fue: " + salida
         );
 
-        // Verifica precio por defecto (según constructor de ServicioGuarderiaDiurna)
-        assertEquals(10.0, servicio.getPrecio(), 1e-9);
+        // Verifica precio y moneda definidos en TipoServicio
+        assertEquals(TipoServicio.GUARDERIA_DIURNA.getPrecio(), servicio.getPrecio());
+        assertEquals(TipoServicio.GUARDERIA_DIURNA.getMoneda(), servicio.getCurrency());
     }
 }
