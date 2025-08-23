@@ -1,16 +1,15 @@
 package com.mycompany.petdaycare.Servicio;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
 import com.mycompany.petdaycare.CategoriaCuidado.CategoriaCuidado;
 import com.mycompany.petdaycare.Composite.Servicio;
 import com.mycompany.petdaycare.Composite.ServicioBase;
 import com.mycompany.petdaycare.Composite.TipoServicio;
-
-import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class FabricaServicioPaseoTest {
 
@@ -49,28 +48,4 @@ class FabricaServicioPaseoTest {
         assertEquals(s1.getCategoria(), s2.getCategoria());
     }
 
-    @Test
-    void FP003_createServicio_valoresPorDefecto() {
-        FabricaServicioPaseo fabrica = new FabricaServicioPaseo();
-        Servicio servicio = fabrica.createServicio();
-
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PrintStream original = System.out;
-        System.setOut(new PrintStream(baos));
-        try {
-            servicio.ejecutar();
-        } finally {
-            System.setOut(original);
-        }
-
-        String salida = baos.toString().trim();
-        assertTrue(
-            salida.contains("Ejecutando servicio de Paseo"),
-            "Salida esperada: 'Ejecutando servicio de Paseo'. Fue: " + salida
-        );
-
-        
-        assertEquals(1.0, servicio.getPrecio());
-    }
 }

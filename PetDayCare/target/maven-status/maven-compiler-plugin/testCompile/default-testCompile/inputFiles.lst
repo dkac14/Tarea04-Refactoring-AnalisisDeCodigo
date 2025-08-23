@@ -1,13 +1,13 @@
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Centro\CentroTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\ChainOfResponsability\EquipoAtencionGeneralTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\ChainOfResponsability\PersonalCentroTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Composite\PaqueteServicioTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Composite\TipoServicioTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Decorator\ServicioConCameraDecoratorTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Decorator\ServicioConReporteDecoratorTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Observer\NotificadorTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Observer\UsuarioClienteTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioEntrenamientoTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioGuarderiaDiurnaTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioHospedajeNocheTest.java
-C:\Users\Lenovo\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioPaseoTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Centro\CentroTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\ChainOfResponsability\EquipoAtencionGeneralTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\ChainOfResponsability\PersonalCentroTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Composite\PaqueteServicioTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Composite\TipoServicioTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Decorator\ServicioConCameraDecoratorTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Decorator\ServicioConReporteDecoratorTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Observer\NotificadorTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Observer\UsuarioClienteTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioEntrenamientoTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioGuarderiaDiurnaTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioHospedajeNocheTest.java
+C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\src\test\java\com\mycompany\petdaycare\Servicio\FabricaServicioPaseoTest.java

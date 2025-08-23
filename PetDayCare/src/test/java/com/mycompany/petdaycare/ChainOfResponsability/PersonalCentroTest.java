@@ -1,23 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package com.mycompany.petdaycare.ChainOfResponsability;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
-
-/**
- *
- * @author Lenovo
- */
 public class PersonalCentroTest {
-   
+
     private ByteArrayOutputStream outputStream;
     private PrintStream originalOut;
 
@@ -30,48 +22,53 @@ public class PersonalCentroTest {
 
     @Test
     void testHandleIncidenteResueltoPorPersonalCentro() {
-       
         PersonalCentro personalCentro = new PersonalCentro();
-        String incidente = "El agua del bebedero está muy bajo";
+        String incidente = "El agua del bebedero está muy bajo"; // contiene "bajo"
 
         personalCentro.handle(incidente);
 
         String output = outputStream.toString().trim();
-        assertTrue(output.contains("Personal del centro resolvió el incidente"), "Debe resolverse por el PersonalCentro");
-        assertTrue(output.contains(incidente), "Debe incluir el incidente en el mensaje");
+        assertTrue(output.contains("Personal del centro resolvió el incidente"),
+                "Debe resolverse por el PersonalCentro");
+        assertTrue(output.contains(incidente),
+                "Debe incluir el incidente en el mensaje");
     }
-    
+
     @Test
     void testHandleIncidenteEscaladoAOtroManejador() {
-        // Arrange
         PersonalCentro personalCentro = new PersonalCentro();
-        EquipoAtencionGeneral equipoGeneral = new EquipoAtencionGeneral();
+        // Creamos un manejador siguiente simulado
+        ManejadorIncidenteBase siguiente = new ManejadorIncidenteBase() {
+            @Override
+            public void handle(String incidente) {
+                System.out.println("Incidente escalado: " + incidente);
+            }
+        };
 
-        personalCentro.setNext(equipoGeneral);
+        personalCentro.setNext(siguiente);
 
-        String incidente = "El perro escapó de la zona segura. tipo: medio";
+        String incidente = "El perro escapó de la zona segura. tipo: medio"; // no contiene "bajo"
 
-        // Act
         personalCentro.handle(incidente);
 
-        // Assert
         String output = outputStream.toString().trim();
-        assertTrue(output.contains("Equipo de atención general resolvió el incidente"), "Debe escalarse a EquipoAtencionGeneral");
+        assertTrue(output.contains("Incidente escalado"),
+                "Debe escalarse al siguiente manejador en la cadena");
+        assertTrue(output.contains(incidente),
+                "El mensaje escalado debe incluir el incidente original");
     }
 
     @Test
     void testHandleSinSiguienteEnCadenaNoLanzaExcepcion() {
-        
         PersonalCentro personalCentro = new PersonalCentro();
-        String incidente = "Algo grave ocurrió";
+        String incidente = "Algo grave ocurrió"; // no contiene "bajo"
 
-        
-        assertDoesNotThrow(() -> personalCentro.handle(incidente), "No debe lanzar excepción si no hay siguiente manejador");
+        assertDoesNotThrow(() -> personalCentro.handle(incidente),
+                "No debe lanzar excepción si no hay siguiente manejador");
     }
 
     @org.junit.jupiter.api.AfterEach
     void tearDown() {
-        System.setOut(originalOut); 
+        System.setOut(originalOut);
     }
-    
 }

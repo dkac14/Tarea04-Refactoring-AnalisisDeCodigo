@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mycompany.petdaycare.Servicio.FabricaServicioHospedajeNocheTest" time="0.075" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mycompany.petdaycare.ChainOfResponsability.PersonalCentroTest" time="0.092" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="EC"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\ADRIAN CRIP\AppData\Local\Temp\surefire10962544178772815237\surefirebooter-20250823135143244_3.jar C:\Users\ADRIAN CRIP\AppData\Local\Temp\surefire10962544178772815237 2025-08-23T13-51-42_997-jvmRun1 surefire-20250823135143244_1tmp surefire_0-20250823135143244_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\ADRIAN CRIP\AppData\Local\Temp\surefire18304015954778880968\surefirebooter-20250823134833811_3.jar C:\Users\ADRIAN CRIP\AppData\Local\Temp\surefire18304015954778880968 2025-08-23T13-48-33_593-jvmRun1 surefire-20250823134833811_1tmp surefire_0-20250823134833811_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.mycompany.petdaycare.Servicio.FabricaServicioHospedajeNocheTest"/>
+    <property name="test" value="com.mycompany.petdaycare.ChainOfResponsability.PersonalCentroTest"/>
     <property name="surefire.test.class.path" value="C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\target\test-classes;C:\Users\ADRIAN CRIP\Documents\GitHub\Tarea04-Refactoring-AnalisisDeCodigo\PetDayCare\target\classes;C:\Users\ADRIAN CRIP\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\mockito\mockito-core\2.2.5\mockito-core-2.2.5.jar;C:\Users\ADRIAN CRIP\.m2\repository\net\bytebuddy\byte-buddy\1.4.33\byte-buddy-1.4.33.jar;C:\Users\ADRIAN CRIP\.m2\repository\net\bytebuddy\byte-buddy-agent\1.4.33\byte-buddy-agent-1.4.33.jar;C:\Users\ADRIAN CRIP\.m2\repository\org\objenesis\objenesis\2.4\objenesis-2.4.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\ADRIAN CRIP"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\ADRIAN CRIP\AppData\Local\Temp\surefire10962544178772815237\surefirebooter-20250823135143244_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ADRIAN CRIP\AppData\Local\Temp\surefire18304015954778880968\surefirebooter-20250823134833811_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.16+8"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="FH002_createServicio_instanciasIndependientes" classname="com.mycompany.petdaycare.Servicio.FabricaServicioHospedajeNocheTest" time="0.037"/>
-  <testcase name="FH001_createServicio_retornaInstanciaCorrecta" classname="com.mycompany.petdaycare.Servicio.FabricaServicioHospedajeNocheTest" time="0.002"/>
-  <testcase name="FH003_createServicio_valoresPorDefectoYEjecucion" classname="com.mycompany.petdaycare.Servicio.FabricaServicioHospedajeNocheTest" time="0.003"/>
+  <testcase name="testHandleIncidenteResueltoPorPersonalCentro" classname="com.mycompany.petdaycare.ChainOfResponsability.PersonalCentroTest" time="0.04"/>
+  <testcase name="testHandleSinSiguienteEnCadenaNoLanzaExcepcion" classname="com.mycompany.petdaycare.ChainOfResponsability.PersonalCentroTest" time="0.004"/>
+  <testcase name="testHandleIncidenteEscaladoAOtroManejador" classname="com.mycompany.petdaycare.ChainOfResponsability.PersonalCentroTest" time="0.003"/>
 </testsuite>
