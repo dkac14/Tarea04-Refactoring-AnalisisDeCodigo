@@ -1,5 +1,7 @@
 package com.mycompany.petdaycare.Decorator;
 
+import java.math.BigDecimal;
+
 import com.mycompany.petdaycare.Composite.Servicio;
 
 public abstract class ServicioDecorator extends Servicio {
@@ -16,7 +18,7 @@ public abstract class ServicioDecorator extends Servicio {
     }
 
     @Override
-    public double getPrecio() {
+    public BigDecimal getPrecio() {
         return wrappee.getPrecio();
     }
     protected abstract void aplicarDecoracion();
