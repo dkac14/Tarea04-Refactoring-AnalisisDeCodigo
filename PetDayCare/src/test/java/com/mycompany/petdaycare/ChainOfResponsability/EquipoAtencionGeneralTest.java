@@ -8,8 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import com.mycompany.petdaycare.ChainOfResponsability.EquipoAtencionGeneral;
-import com.mycompany.petdaycare.ChainOfResponsability.ManejadorIncidenteBase;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
